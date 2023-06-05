@@ -893,7 +893,7 @@ public class DiscordChannel : SnowflakeObject, IEquatable<DiscordChannel>
 	/// <exception cref="NotFoundException">Thrown when the channel does not exist.</exception>
 	/// <exception cref="BadRequestException">Thrown when an invalid parameter was provided.</exception>
 	/// <exception cref="ServerErrorException">Thrown when Discord is unable to process the request.</exception>
-	public async Task DeleteMessagesAsync(IEnumerable<DiscordMessage> messages, string reason = null)
+	public async Task DeleteMessagesAsync(IEnumerable<DiscordMessage> messages, string? reason = null)
 	{
 		// don't enumerate more than once
 		var msgs = messages.Where(x => x.Channel.Id == this.Id).Select(x => x.Id).ToArray();

@@ -513,7 +513,7 @@ public class DiscordMember : DiscordUser, IEquatable<DiscordMember>
 	/// <exception cref="NotFoundException">Thrown when the member does not exist.</exception>
 	/// <exception cref="BadRequestException">Thrown when an invalid parameter was provided.</exception>
 	/// <exception cref="ServerErrorException">Thrown when Discord is unable to process the request.</exception>
-	public Task TimeoutAsync(DateTimeOffset until, string reason = null)
+	public Task TimeoutAsync(DateTimeOffset until, string? reason = null)
 		=> until.Subtract(DateTimeOffset.UtcNow).Days > 28 ? throw new ArgumentException("Timeout can not be longer than 28 days") : this.Discord.ApiClient.ModifyTimeoutAsync(this.Guild.Id, this.Id, until, reason);
 
 	/// <summary>
@@ -525,7 +525,7 @@ public class DiscordMember : DiscordUser, IEquatable<DiscordMember>
 	/// <exception cref="NotFoundException">Thrown when the member does not exist.</exception>
 	/// <exception cref="BadRequestException">Thrown when an invalid parameter was provided.</exception>
 	/// <exception cref="ServerErrorException">Thrown when Discord is unable to process the request.</exception>
-	public Task TimeoutAsync(TimeSpan until, string reason = null)
+	public Task TimeoutAsync(TimeSpan until, string? reason = null)
 		=> this.TimeoutAsync(DateTimeOffset.UtcNow + until, reason);
 
 	/// <summary>
@@ -537,7 +537,7 @@ public class DiscordMember : DiscordUser, IEquatable<DiscordMember>
 	/// <exception cref="NotFoundException">Thrown when the member does not exist.</exception>
 	/// <exception cref="BadRequestException">Thrown when an invalid parameter was provided.</exception>
 	/// <exception cref="ServerErrorException">Thrown when Discord is unable to process the request.</exception>
-	public Task TimeoutAsync(DateTime until, string reason = null)
+	public Task TimeoutAsync(DateTime until, string? reason = null)
 		=> this.TimeoutAsync(until.ToUniversalTime() - DateTime.UtcNow, reason);
 
 	/// <summary>
@@ -597,7 +597,7 @@ public class DiscordMember : DiscordUser, IEquatable<DiscordMember>
 	/// <exception cref="NotFoundException">Thrown when the member does not exist.</exception>
 	/// <exception cref="BadRequestException">Thrown when an invalid parameter was provided.</exception>
 	/// <exception cref="ServerErrorException">Thrown when Discord is unable to process the request.</exception>
-	public Task BanAsync(int deleteMessageDays = 0, string reason = null)
+	public Task BanAsync(int deleteMessageDays = 0, string? reason = null)
 		=> this.Guild.BanMemberAsync(this, deleteMessageDays, reason);
 
 	/// <summary>
@@ -607,7 +607,7 @@ public class DiscordMember : DiscordUser, IEquatable<DiscordMember>
 	/// <exception cref="NotFoundException">Thrown when the member does not exist.</exception>
 	/// <exception cref="BadRequestException">Thrown when an invalid parameter was provided.</exception>
 	/// <exception cref="ServerErrorException">Thrown when Discord is unable to process the request.</exception>
-	public Task UnbanAsync(string reason = null)
+	public Task UnbanAsync(string? reason = null)
 		=> this.Guild.UnbanMemberAsync(this, reason);
 
 	/// <summary>
@@ -619,7 +619,7 @@ public class DiscordMember : DiscordUser, IEquatable<DiscordMember>
 	/// <exception cref="NotFoundException">Thrown when the member does not exist.</exception>
 	/// <exception cref="BadRequestException">Thrown when an invalid parameter was provided.</exception>
 	/// <exception cref="ServerErrorException">Thrown when Discord is unable to process the request.</exception>
-	public Task RemoveAsync(string reason = null)
+	public Task RemoveAsync(string? reason = null)
 		=> this.Discord.ApiClient.RemoveGuildMemberAsync(this.GuildId, this.Id, reason);
 
 	/// <summary>

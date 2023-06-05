@@ -2494,7 +2494,7 @@ public sealed class DiscordApiClient
 	/// <param name="messageId">The message_id.</param>
 	/// <param name="reason">The reason.</param>
 
-	internal Task DeleteMessageAsync(ulong channelId, ulong messageId, string reason)
+	internal Task DeleteMessageAsync(ulong channelId, ulong messageId, string? reason)
 	{
 		var headers = Utilities.GetBaseHeaders();
 		if (!string.IsNullOrWhiteSpace(reason))
@@ -2514,7 +2514,7 @@ public sealed class DiscordApiClient
 	/// <param name="messageIds">The message_ids.</param>
 	/// <param name="reason">The reason.</param>
 
-	internal Task DeleteMessagesAsync(ulong channelId, IEnumerable<ulong> messageIds, string reason)
+	internal Task DeleteMessagesAsync(ulong channelId, IEnumerable<ulong> messageIds, string? reason)
 	{
 		var pld = new RestChannelMessageBulkDeletePayload
 		{
@@ -2927,7 +2927,7 @@ public sealed class DiscordApiClient
 	/// <param name="userId">The user_id.</param>
 	/// <param name="reason">The reason.</param>
 
-	internal Task RemoveGuildMemberAsync(ulong guildId, ulong userId, string reason)
+	internal Task RemoveGuildMemberAsync(ulong guildId, ulong userId, string? reason)
 	{
 		var urlParams = new Dictionary<string, string>();
 		if (reason != null)

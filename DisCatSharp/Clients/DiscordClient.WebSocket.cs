@@ -406,7 +406,7 @@ public sealed partial class DiscordClient
 	/// <param name="activity">The activity.</param>
 	/// <param name="userStatus">The optional user status.</param>
 	/// <param name="idleSince">Since when is the client performing the specified activity.</param>
-	internal async Task InternalUpdateStatusAsync(DiscordActivity activity, UserStatus? userStatus, DateTimeOffset? idleSince)
+	internal async Task InternalUpdateStatusAsync(DiscordActivity? activity, UserStatus? userStatus, DateTimeOffset? idleSince)
 	{
 		if (activity != null && activity.Name != null && activity.Name.Length > 128)
 			throw new Exception("Game name can't be longer than 128 characters!");

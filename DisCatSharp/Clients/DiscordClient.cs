@@ -1041,7 +1041,7 @@ public sealed partial class DiscordClient : BaseDiscordClient
 	/// <param name="userStatus">Status of the user.</param>
 	/// <param name="idleSince">Since when is the client performing the specified activity.</param>
 	/// <returns></returns>
-	public Task UpdateStatusAsync(DiscordActivity activity = null, UserStatus? userStatus = null, DateTimeOffset? idleSince = null)
+	public Task UpdateStatusAsync(DiscordActivity? activity = null, UserStatus? userStatus = null, DateTimeOffset? idleSince = null)
 		=> this.InternalUpdateStatusAsync(activity, userStatus, idleSince);
 
 	/// <summary>

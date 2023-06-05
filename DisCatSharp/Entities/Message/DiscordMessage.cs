@@ -686,7 +686,7 @@ public class DiscordMessage : SnowflakeObject, IEquatable<DiscordMessage>
 	/// <exception cref="NotFoundException">Thrown when the member does not exist.</exception>
 	/// <exception cref="BadRequestException">Thrown when an invalid parameter was provided.</exception>
 	/// <exception cref="ServerErrorException">Thrown when Discord is unable to process the request.</exception>
-	public Task DeleteAsync(string reason = null)
+	public Task DeleteAsync(string? reason = null)
 #pragma warning restore CS1574 // XML comment has cref attribute that could not be resolved
 #pragma warning restore CS1574 // XML comment has cref attribute that could not be resolved
 #pragma warning restore CS1574 // XML comment has cref attribute that could not be resolved
@@ -1063,7 +1063,7 @@ public class DiscordMessage : SnowflakeObject, IEquatable<DiscordMessage>
 	/// <param name="e1">First message to compare.</param>
 	/// <param name="e2">Second message to compare.</param>
 	/// <returns>Whether the two messages are equal.</returns>
-	public static bool operator ==(DiscordMessage e1, DiscordMessage e2)
+	public static bool operator ==(DiscordMessage? e1, DiscordMessage? e2)
 	{
 		var o1 = e1 as object;
 		var o2 = e2 as object;
@@ -1079,6 +1079,6 @@ public class DiscordMessage : SnowflakeObject, IEquatable<DiscordMessage>
 	/// <param name="e1">First message to compare.</param>
 	/// <param name="e2">Second message to compare.</param>
 	/// <returns>Whether the two messages are not equal.</returns>
-	public static bool operator !=(DiscordMessage e1, DiscordMessage e2)
+	public static bool operator !=(DiscordMessage? e1, DiscordMessage? e2)
 		=> !(e1 == e2);
 }
